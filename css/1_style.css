@@ -74,7 +74,7 @@ button,
   font-weight: 600;
 }
 
-/* #region */
+/* #endregion */
 
 body {
   min-height: 100vh;
@@ -180,10 +180,9 @@ header nav a:hover {
   }
 
   header nav::before {
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    content: '\f0c9';
-    font-size: 32px;
+    content: url('/assets/icons/List.svg');
+    display: block;
+    width: 32px;
   }
 
   header nav:hover {
@@ -421,6 +420,98 @@ header .btn {
   line-height: 1.5625;
   letter-spacing: var(--size-letter-spacing);
   margin-bottom: 0;
+}
+
+/* #endregion */
+
+/* #region process list */
+
+#section-process {
+  padding-top: 47px; /* excluding margin of inner elements */
+  padding-bottom: 75px;
+
+  background-image: url('/assets/backgrounds/9c95c18933a375fb8c7f5e24ccb04f62.png');
+  background-blend-mode: lighten;
+  background-size: cover;
+}
+.process-title {
+  text-align: center;
+}
+#section-process h2 {
+  font-size: 36px;
+  margin-bottom: 9px;
+}
+.process-title .subtitle {
+  font-size: 14px;
+  line-height: 2.3125;
+  margin-bottom: 55px;
+}
+.process-item {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.375;
+  font-weight: 700;
+  min-width: 7em;
+  max-width: 12em;
+  flex: 1 1 auto;
+}
+.process-separator {
+  height: 36px;
+  width: fit-content;
+}
+.process-separator::before {
+  content: url(/assets/icons/CaretCircleDoubleRight.svg);
+  display: block;
+  height: 100%;
+}
+.process-list {
+  display: flex;
+  align-items: center;
+  row-gap: 32px;
+  column-gap: 36px;
+  flex-flow: column nowrap;
+}
+@media screen and (min-width: 768px) {
+  #section-process {
+    padding-top: 32px;
+    padding-bottom: 39px;
+  }
+  #section-process h2 {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+  .process-title .subtitle {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+  .process-item {
+    text-align: start;
+    font-size: 14px;
+    line-height: 1.5625;
+    margin-bottom: 10px;
+  }
+  .process-separator {
+    height: 28px;
+    width: 28px;
+    transform: rotate(-90deg);
+  }
+  .process-list {
+    flex-flow: row nowrap; /* wrap messes up widths */
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #section-process {
+    padding-top: 65px;
+    padding-bottom: 78px;
+  }
+  .process-title .subtitle {
+    margin-bottom: 64px;
+  }
+  .process-item {
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
 }
 
 /* #endregion */
