@@ -649,6 +649,11 @@ article .btn {
   line-height: 1.125;
   margin-bottom: 14px;
 }
+.companies-title .subtitle {
+  font-size: 14px;
+  line-height: 32px;
+  margin-bottom: 40px;
+}
 @media screen and (min-width: 768px) {
   #section-companies {
     padding-top: 42px;
@@ -659,13 +664,39 @@ article .btn {
     line-height: 1.3125;
     margin-bottom: 5px;
   }
+  .companies-title .subtitle {
+    font-size: 18px;
+    margin-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #section-companies {
+    padding-top: 56px;
+    padding-bottom: 59px;
+  }
+}
+
+.companies-title {
+  text-align: center;
 }
 
 /* #endregion */
 
 /* #region CTA */
 
-
+#section-cta {
+  padding-top: 90px;
+  padding-bottom: 82px;
+}
+#section-cta h2 {
+  line-height: 32px;
+}
+@media screen and (min-width: 768px) {
+  #section-cta h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+}
 
 /* #endregion */
 
