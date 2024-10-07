@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atsiskaitomasis HTML/CSS darbas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/1_style.css" />
+    <link rel="stylesheet" href="css/2_colors.css" />
+  </head>
+  <body>
+    <!-- heading logic:
+		 one H1 per document
+		 one H2 per section
+		 H3 for repeating elements in section -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#features">Çözüm ve Hizmetler</a></li>
+          <li><a href="#">Ürünler</a></li>
+          <li><a href="#">Teknolojiler</a></li>
+          <li><a href="#">İnsan Kaynakları</a></li>
+          <li><a href="#">Kurumsal</a></li>
+        </ul>
+      </nav>
+      <button class="btn">İletişim</button>
+    </header>
+    <!-- not sure if this should be <main> semantically -->
+    <main class="hero">
+      <div class="cta-box">
+        <h1>Bilgi Teknolojilerinde 23 Yıllık Tecrübe</h1>
+        <p>
+          Müşterilerimizin yüksek kalite seviyelerini koruyabilmeleri için
+          farklı sektörlerde tecrübe kazanmış uzman kadrolarımızla Proje
+          Yönetimi, İş Analizi ve Test Yönetimi hizmetleri sunmaktayız.
+        </p>
+        <form class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Mail bültenimize kayıt ol"
+          />
+          <input type="submit" class="btn" value="Kayıt Ol" />
+        </form>
+      </div>
+    </main>
+    <section>
+      <h2 id="features">Kalite ve Süreç Yönetimi</h2>
+    </section>
+    <section class="primary">Section 3</section>
+    <section>Section 4</section>
+    <section>Section 5</section>
+    <section>Section 6</section>
+    <footer class="primary">Footer</footer>
+  </body>
+</html>

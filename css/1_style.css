@@ -1,0 +1,355 @@
+/* #region normalize */
+/* Set up most common properties as default,
+ then tweak individual irregularities afterwards */
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+p,
+a,
+ul,
+ol,
+li {
+  margin: 0;
+  /* font-size: 14px; */
+  /* line-height: 2.0625; */
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 1.375;
+  margin: 5px 0 17px 0;
+  font-weight: 800;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 56px;
+    line-height: 1.3125;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 1.3125;
+  margin: 3px 0 12px 0;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1.3125;
+  margin: 3px 0 10px 0;
+}
+
+p {
+  margin: 10px 0 40px 0;
+}
+
+/* #endregion */
+
+/* #region button defaults */
+
+button,
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+}
+
+/* #region */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+/* in the odd case that all content height < 100vh */
+/* disabled for performance */
+/* body > * {
+  flex-grow: 1;
+} */
+
+:root {
+  --size-content-max-width: 1244px;
+  --size-widescreen-padding: calc(
+    (100vw - var(--size-content-max-width)) * 0.5
+  );
+}
+
+/* default side padding for all content, mobile-first */
+body > * {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  body > * {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body > * {
+    padding-left: max(var(--size-widescreen-padding), 98px);
+    padding-right: max(var(--size-widescreen-padding), 98px);
+  }
+}
+
+/* #region header & nav (hamburgers) */
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35px;
+  display: flex;
+  flex-flow: row nowrap; /* possible overflow issues with nowrap */
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 35px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap; /* possible overflow issues with nowrap */
+  column-gap: 30px;
+}
+
+header nav ul li {
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-foreground);
+  padding: 6px 5px;
+  text-wrap: nowrap;
+}
+
+header nav a:hover {
+  color: var(--color-foreground-alt2);
+}
+
+/* desktop-first here, because mobile behavior is exceptional */
+@media screen and (max-width: 767px) {
+  header {
+    justify-content: space-between;
+  }
+
+  header nav {
+    position: relative;
+    cursor: pointer;
+  }
+
+  header nav ul {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: var(--color-background);
+    border-radius: 4px;
+    box-shadow: 4px 8px 8px var(--color-foreground-alt2);
+    display: none;
+  }
+
+  header nav::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    content: '\f0c9';
+    font-size: 32px;
+  }
+
+  header nav:hover {
+    color: var(--color-foreground-alt2);
+  }
+
+  header nav:hover ul {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  header nav a {
+    line-height: 48px;
+    padding: 0 16px;
+    text-wrap: nowrap;
+  }
+
+  header nav a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-foreground-on-dark);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    padding-right: 40px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header {
+    padding-right: 122px;
+  }
+}
+
+header .btn {
+  /* does not inherit from header? */
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 20px;
+}
+
+/* #endregion */
+
+/* #region hero & cta-box */
+
+.hero {
+  padding-top: 132px;
+  padding-bottom: 84px;
+
+  background: radial-gradient(circle, #ffff 0%, #fff0 100%) no-repeat,
+    url('/assets/backgrounds/985cabb6920eaaeecfea44bd6b5ef5d8.png') no-repeat
+      var(--color-background-alt);
+
+  background-size: 300% 100%, auto 138%;
+  background-position: calc((100vw - 700px) * 0.4) 40%, 64.7% 50%;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    padding: 156px 40px 127px 84px;
+
+    background: url('/assets/backgrounds/985cabb6920eaaeecfea44bd6b5ef5d8.png')
+      no-repeat var(--color-background-alt);
+
+    background-size: auto 127.5%;
+    background-position: 32% 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .hero {
+    padding: 195px max(var(--size-widescreen-padding), 122px) 148px
+      max(var(--size-widescreen-padding), 122px);
+    background-size: cover;
+    background-position-y: 51%;
+  }
+}
+
+.cta-box p {
+  font-size: 12px;
+  letter-spacing: 0.0125em;
+  line-height: 1.9375;
+  margin-bottom: 38px;
+}
+.cta-box h1,
+.cta-box p {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .cta-box p {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 35px;
+    max-width: 34em;
+  }
+  .cta-box h1 {
+    /* em based on same element font size? or parent container? I keep confusing... */
+    max-width: 11em;
+  }
+  .cta-box h1,
+  .cta-box p {
+    text-align: start;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .cta-box p {
+    font-size: 20px;
+    line-height: 1.8125;
+    margin-bottom: 41px;
+  }
+}
+
+.cta-box .input-group {
+  background-color: var(--color-background);
+  padding: 5px;
+  border-radius: 8px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-items: flex-end;
+  align-items: stretch;
+  width: 100%;
+}
+.cta-box .input-group .form-control {
+  flex: 1 1 auto;
+  font-size: 14px;
+  letter-spacing: 0.0125em;
+  line-height: 36px;
+  padding-left: 1.25em;
+  border-radius: 8px;
+  border: none;
+}
+.form-control::placeholder {
+  color: #0006;
+}
+.cta-box .input-group .btn {
+  font-size: 14px;
+  letter-spacing: 0.0125em;
+  line-height: 19px;
+  padding: 15px 18px;
+  flex: 0 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .cta-box .input-group {
+    padding: 6px;
+    width: fit-content;
+  }
+  .cta-box .input-group .form-control {
+    font-size: 16px;
+    min-width: 18.75em;
+  }
+  .cta-box .input-group .btn {
+    font-size: 16px;
+    line-height: 36px;
+    padding: 13px 18px 12px 31px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .cta-box .input-group .form-control {
+    min-width: 22.125em;
+    padding-left: 1.625em;
+  }
+  .cta-box .input-group .btn {
+    padding-left: 37px;
+    padding-right: 38px;
+  }
+}
+
+.cta-box .input-group .form-control:focus {
+  outline: none;
+  /* TODO: come up with a good looking alternative */
+}
+
+/* #endregion */

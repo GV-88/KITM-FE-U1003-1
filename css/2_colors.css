@@ -1,0 +1,50 @@
+:root {
+  --color-background: #fff;
+  --color-background-alt: #f4f5f7;
+  --color-foreground: #000;
+  --color-foreground-alt1: #2e2e2e;
+  --color-foreground-alt2: #808080;
+  --color-text-gray-900: #18191f;
+  --color-foreground-on-dark: #fff;
+  --color-primary: #f84646;
+  --color-primary-hover: #f66;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* by default, document sections are distinguished by alternating background color */
+/* then use background images and/or .primary class to further customize individual sections */
+body > *:nth-child(2n) {
+  background-color: var(--color-background-alt);
+}
+
+div.primary,
+section.primary,
+header.primary,
+footer.primary,
+main.primary,
+button.primary,
+.btn.primary,
+button,
+.btn {
+  background-color: var(--color-primary);
+  color: var(--color-foreground-on-dark);
+}
+
+button.primary:hover,
+.btn.primary:hover,
+button:hover,
+.btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* in case a button ends up on a primary background, use different colors */
+/* or maybe better to use just a white outline button in such case? */
+.primary button,
+.primary .btn {
+  background-color: var(--color-background);
+  color: var(--color-foreground-alt1);
+}
