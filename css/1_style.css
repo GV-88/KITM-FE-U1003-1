@@ -66,7 +66,8 @@ p {
 /* #region button defaults */
 
 button,
-.btn, a.btn {
+.btn,
+a.btn {
   cursor: pointer;
   border: none;
   border-radius: 8px;
@@ -394,7 +395,8 @@ header .btn {
   }
 }
 
-.features-title, .features-list .card {
+.features-title,
+.features-list .card {
   text-align: center;
 }
 
@@ -629,11 +631,33 @@ article .btn {
   #section-articles article {
     column-gap: 145px;
   }
-  #section-articles article:nth-child(2n-1) {
+  /* #section-articles article:nth-child(2n-1) {
     grid-template: auto / 1fr auto;
   }
   #section-articles article:nth-child(2n) {
     grid-template: auto / auto 1fr;
+  } */
+  /* VERY strange behavior with this layout: content height can exceed grid row height!!!
+     This happens when text in 1fr column grows higher than image in auto column,
+     then image with height:100% tries to follow the height
+     and possibly induces a feedback loop with width.
+     These auto and 1fr sizes become co-dependent; too many unknown variables, too dynamic.
+     Probably giving auto width to img column is not wise, because then it tries to match actual img width */
+  /* Imagine scenario: picture is wide landscape and article has lots of text;
+     in such case would seem best to resort to single column layout */
+
+  /* alternative approach */
+  #section-articles article {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  #section-articles article > * {
+    flex: 1 0 15%;
+  }
+  #section-articles article:nth-child(2n) {
+    flex-direction: row-reverse;
   }
 }
 
@@ -680,6 +704,49 @@ article .btn {
   text-align: center;
 }
 
+.logo-cloud a {
+  display: inline-block;
+  width: 170px;
+  height: 96px;
+  flex: 0 0 auto;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background-color: var(--color-background);
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  transition: 100ms;
+}
+
+.logo-cloud a > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.logo-cloud a:hover {
+  box-shadow: 0 0 8px var(--color-primary);
+}
+
+.logo-cloud a:not(a[target='_blank']) > span::after {
+  content: url('/assets/icons/ArrowRight.svg');
+  display: inline-block;
+  height: 32px;
+  vertical-align: middle;
+}
+
+.logo-cloud {
+  display: flex;
+  gap: 24px;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
 /* #endregion */
 
 /* #region CTA */
@@ -688,18 +755,142 @@ article .btn {
   padding-top: 90px;
   padding-bottom: 82px;
 }
+#section-cta .cta-block img {
+  height: 90px;
+  margin-bottom: 20px;
+}
 #section-cta h2 {
   line-height: 32px;
 }
+#section-cta .cta-block p {
+  font-size: 14;
+  line-height: 1.8125;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+#section-cta .btn {
+  font-size: 16px;
+  line-height: 20px;
+  padding: 11px 20px;
+}
 @media screen and (min-width: 768px) {
+  #section-cta {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+  #section-cta .cta-block img {
+    height: 120px;
+    margin-bottom: 10px;
+  }
   #section-cta h2 {
     font-size: 48px;
     margin-bottom: 20px;
   }
+  #section-cta .cta-block p {
+    font-size: 18;
+    line-height: 1.75;
+    margin-bottom: 30px;
+  }
+  #section-cta .btn {
+    font-size: 24px;
+    padding: 25px 40px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #section-cta {
+    padding-bottom: 185px;
+  }
+}
+
+#section-cta .cta-block {
+  text-align: center;
 }
 
 /* #endregion */
 
 /* #region footer (sitemap) */
+
+footer {
+  padding-top: 80px;
+  padding-bottom: 77px;
+}
+footer,
+.sitemap,
+.sitemap h3 {
+  font-size: 16px;
+}
+.sitemap ul,
+.sitemap li {
+  margin: 0;
+  padding: 0;
+}
+.sitemap ul {
+  list-style: none;
+  font-weight: 400;
+  line-height: 2;
+  display: flex;
+  row-gap: 24px;
+  flex-flow: column nowrap;
+}
+.sitemap > ul > li {
+  font-weight: bold;
+  line-height: 1.5;
+  display: flex;
+  row-gap: 24px;
+  flex-flow: column nowrap;
+}
+.sitemap > ul {
+  gap: 49px;
+}
+.sitemap {
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+  footer {
+    padding-bottom: 70px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  .sitemap > ul {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  .sitemap {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  footer {
+    padding-left: max(var(--size-widescreen-padding), 104px);
+    padding-right: max(var(--size-widescreen-padding), 98px);
+  }
+  .sitemap > ul {
+    column-gap: 100px;
+    justify-content: flex-start;
+  }
+}
+
+.footer-footer {
+  display: flex;
+  row-gap: 62px;
+  column-gap: 2em;
+  flex-flow: column nowrap;
+}
+.copyright {
+  line-height: 2;
+}
+@media screen and (min-width: 768px) {
+  .footer-footer {
+    flex-flow: row-reverse wrap;
+    justify-content: space-between;
+  }
+}
+.social-icons {
+  display: flex;
+  gap: 16px;
+}
+.social-icons img {
+  width: 32px;
+}
 
 /* #endregion */
