@@ -57,7 +57,7 @@ header nav a {
     display: none;
   }
   header nav::before {
-    content: url('/assets/icons/List.svg');
+    content: url('../assets/icons/List.svg');
     display: block;
     width: 32px;
   }
@@ -152,7 +152,7 @@ header nav a {
   width: fit-content;
 }
 .process-separator::before {
-  content: url(/assets/icons/CaretCircleDoubleRight.svg);
+  content: url(../assets/icons/CaretCircleDoubleRight.svg);
   display: block;
   height: 100%;
 }

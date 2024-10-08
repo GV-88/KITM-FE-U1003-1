@@ -453,7 +453,7 @@ header nav a {
 
 .hero {
   background: radial-gradient(circle, #ffff 0%, #fff0 100%) no-repeat,
-    url('/assets/backgrounds/985cabb6920eaaeecfea44bd6b5ef5d8.png') no-repeat
+    url('../assets/backgrounds/985cabb6920eaaeecfea44bd6b5ef5d8.png') no-repeat
       var(--color-background-alt);
 
   background-size: 300% 100%, auto 138%;
@@ -461,7 +461,7 @@ header nav a {
 }
 @media screen and (min-width: 768px) {
   .hero {
-    background: url('/assets/backgrounds/985cabb6920eaaeecfea44bd6b5ef5d8.png')
+    background: url('../assets/backgrounds/985cabb6920eaaeecfea44bd6b5ef5d8.png')
       no-repeat var(--color-background-alt);
 
     background-size: auto 127.5%;
@@ -534,7 +534,7 @@ header nav a {
 /* #region process list */
 
 #section-process {
-  background-image: url('/assets/backgrounds/9c95c18933a375fb8c7f5e24ccb04f62.png');
+  background-image: url('../assets/backgrounds/9c95c18933a375fb8c7f5e24ccb04f62.png');
   background-blend-mode: lighten;
   background-size: cover;
 }
@@ -608,7 +608,7 @@ article figure img {
   box-shadow: 0 15px 40px #d4d9e8ff;
 }
 .cloud-item:not(a[target='_blank']) > span::after {
-  content: url('/assets/icons/ArrowRight.svg');
+  content: url('../assets/icons/ArrowRight.svg');
   display: inline-block;
   height: 32px;
   margin-left: 0.5em;
