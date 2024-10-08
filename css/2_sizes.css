@@ -1,0 +1,690 @@
+/* constants */
+:root {
+  --size-content-max-width: 1244px;
+  --size-widescreen-padding: calc(
+    (100vw - var(--size-content-max-width)) * 0.5
+  );
+  --size-letter-spacing: 0.0125em;
+}
+
+/* #region reset */
+
+body,
+p,
+a,
+ul,
+ol,
+li {
+  margin: 0;
+}
+
+/* #endregion */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* #region body text and subtitles */
+
+p {
+  /* starting default */
+  margin: 10px 0 40px 0;
+}
+header {
+  font-size: 14px;
+  line-height: 20px;
+}
+.cta-box p {
+  font-size: 12px;
+  letter-spacing: var(--size-letter-spacing);
+  line-height: 1.9375;
+  margin-bottom: 38px;
+}
+.features-title p {
+  font-size: 12px;
+  letter-spacing: var(--size-letter-spacing);
+  line-height: 1.8125;
+  max-width: 45em;
+}
+.features-list .card {
+  font-size: 18px; /* this should work with relative em units */
+  max-width: 17em;
+}
+.features-list .card p {
+  line-height: 1.5625;
+  letter-spacing: var(--size-letter-spacing);
+  margin-bottom: 0;
+}
+.process-title .subtitle {
+  font-size: 14px;
+  line-height: 2.3125;
+  margin-bottom: 55px;
+}
+.process-item {
+  font-size: 18px;
+  line-height: 1.375;
+  font-weight: 700;
+  min-width: 7em;
+  max-width: 12em;
+}
+#section-articles article {
+  font-size: 14px; /* this should work with relative em units */
+}
+.article-body {
+  line-height: 2.0625;
+  margin-bottom: 40px;
+}
+.article-body p {
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+}
+.companies-title .subtitle {
+  font-size: 14px;
+  line-height: 32px;
+  margin-bottom: 40px;
+}
+#section-cta .cta-block p {
+  font-size: 14px;
+  line-height: 1.75;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+footer,
+.sitemap {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .cta-box p {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 35px;
+    max-width: 34em;
+  }
+  .features-title p {
+    font-size: 24px;
+    line-height: 1.625;
+  }
+  .process-title .subtitle {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+  .process-item {
+    font-size: 14px;
+    line-height: 1.5625;
+    margin-bottom: 10px;
+  }
+  .article-body {
+    margin-bottom: 0.5em;
+  }
+  .companies-title .subtitle {
+    font-size: 18px;
+    margin-bottom: 48px;
+  }
+  #section-cta .cta-block p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .cta-box p {
+    font-size: 20px;
+    line-height: 1.8125;
+    margin-bottom: 41px;
+  }
+  .process-title .subtitle {
+    margin-bottom: 64px;
+  }
+  .process-item {
+    font-size: 18px;
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
+  #section-articles article {
+    font-size: 16px;
+  }
+}
+
+/* #endregion */
+
+/* #region level 1 headings (1 per document) */
+
+h1 {
+  font-size: 42px;
+  line-height: 1.375;
+  margin: 5px 0 17px 0;
+  font-weight: 800;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 56px;
+    line-height: 1.3125;
+    margin-bottom: 20px;
+  }
+  .cta-box h1 {
+    /* em based on same element font size? or parent container? I keep confusing... */
+    max-width: 11em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+
+/* #endregion */
+
+/* #region level 2 headings (1 per section) */
+
+h2 {
+  font-size: 36px;
+  line-height: 1.3125;
+  margin: 3px 0 12px 0;
+  font-weight: 800;
+}
+#section-features h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+#section-process h2 {
+  margin-bottom: 9px;
+}
+#section-companies h2 {
+  line-height: 1.125;
+  margin-bottom: 14px;
+}
+#section-cta h2 {
+  line-height: 32px;
+  margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  #section-features h2 {
+    font-size: 36px;
+    line-height: 1.375;
+    margin-bottom: 37px;
+  }
+  #section-process h2 {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+  #section-companies h2 {
+    font-size: 48px;
+    line-height: 1.3125;
+    margin-bottom: 5px;
+  }
+  #section-cta h2 {
+    font-size: 48px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+/* #endregion */
+
+/* #region level 3 headings (multiple items within page sections) */
+
+h3 {
+  font-size: 24px;
+  line-height: 1.3125;
+  margin: 3px 0 10px 0;
+}
+.features-list h3 {
+  margin-top: 10px;
+}
+.article-title {
+  font-size: 36px;
+  line-height: 1.1125;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+}
+.sitemap h3 {
+  font-size: inherit;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .article-title {
+    font-size: 58px;
+    line-height: 1;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .article-title {
+    font-size: 64px;
+    line-height: 1.185;
+    margin-bottom: 40px;
+  }
+}
+
+/* #endregion */
+
+/* #region page section padding */
+
+/* default side padding for all content, mobile-first */
+body > * {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.hero {
+  padding-top: 132px;
+  padding-bottom: 84px;
+}
+#section-features {
+  padding-top: 57px; /* excluding margin of inner elements */
+  padding-bottom: 90px;
+}
+#section-process {
+  padding-top: 47px; /* excluding margin of inner elements */
+  padding-bottom: 75px;
+}
+#section-articles {
+  padding-top: 90px;
+  padding-bottom: 79px;
+}
+#section-companies {
+  padding-top: 37px;
+  padding-bottom: 40px;
+}
+#section-cta {
+  padding-top: 90px;
+  padding-bottom: 82px;
+}
+footer {
+  padding-top: 80px;
+  padding-bottom: 77px;
+}
+@media screen and (min-width: 768px) {
+  body > * {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+  header {
+    padding-right: 40px;
+  }
+  .hero {
+    padding: 156px 40px 127px 84px;
+  }
+  #section-features {
+    padding-top: 117px;
+    padding-bottom: 160px;
+  }
+  #section-process {
+    padding-top: 32px;
+    padding-bottom: 39px;
+  }
+  #section-articles {
+    padding: 160px 60px;
+  }
+  #section-companies {
+    padding-top: 42px;
+    padding-bottom: 73px;
+  }
+  #section-cta {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+  footer {
+    padding-bottom: 70px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body > * {
+    padding-left: max(var(--size-widescreen-padding), 98px);
+    padding-right: max(var(--size-widescreen-padding), 98px);
+  }
+  header {
+    padding-right: 122px;
+  }
+  .hero {
+    padding: 195px max(var(--size-widescreen-padding), 122px) 148px
+      max(var(--size-widescreen-padding), 122px);
+  }
+  #section-features {
+    padding-bottom: 140px;
+    padding-left: max(var(--size-widescreen-padding), 144px);
+    padding-right: max(var(--size-widescreen-padding), 144px);
+  }
+  #section-process {
+    padding-top: 65px;
+    padding-bottom: 78px;
+  }
+  #section-articles {
+    padding-left: max(var(--size-widescreen-padding), 122px);
+    padding-right: max(var(--size-widescreen-padding), 122px);
+  }
+  #section-companies {
+    padding-top: 56px;
+    padding-bottom: 59px;
+  }
+  footer {
+    padding-left: max(var(--size-widescreen-padding), 104px);
+    padding-right: max(var(--size-widescreen-padding), 98px);
+  }
+}
+
+/* #endregion */
+
+/* #region buttons */
+
+button,
+.btn,
+a.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+header .btn {
+  /* does not inherit from header? */
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 20px;
+}
+.cta-box .input-group .btn {
+  font-size: 14px;
+  letter-spacing: var(--size-letter-spacing);
+  line-height: 19px;
+  padding: 15px 18px;
+}
+article .btn {
+  font-size: 14px;
+  line-height: 1.6875;
+  padding: 12px 58px;
+}
+#section-cta .btn {
+  font-size: 16px;
+  line-height: 20px;
+  padding: 11px 20px;
+}
+@media screen and (min-width: 768px) {
+  .cta-box .input-group .btn {
+    font-size: 16px;
+    line-height: 36px;
+    padding: 13px 18px 12px 31px;
+  }
+  #section-cta .btn {
+    font-size: 24px;
+    padding: 25px 40px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .cta-box .input-group .btn {
+    padding-left: 37px;
+    padding-right: 38px;
+  }
+}
+
+/* #endregion */
+
+/* #region header & nav */
+
+header {
+  column-gap: 35px;
+}
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  column-gap: 30px;
+}
+header nav ul li {
+  margin: 0;
+  padding: 0;
+}
+header nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-foreground);
+  padding: 6px 5px;
+}
+@media screen and (min-width: 768px) {
+  header nav a:hover {
+    color: var(--color-foreground-alt2);
+  }
+}
+
+/* #endregion */
+
+/* #region hero & cta-box */
+
+.hero {
+  background: radial-gradient(circle, #ffff 0%, #fff0 100%) no-repeat,
+    url('/assets/backgrounds/985cabb6920eaaeecfea44bd6b5ef5d8.png') no-repeat
+      var(--color-background-alt);
+
+  background-size: 300% 100%, auto 138%;
+  background-position: calc((100vw - 700px) * 0.4) 40%, 64.7% 50%;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    background: url('/assets/backgrounds/985cabb6920eaaeecfea44bd6b5ef5d8.png')
+      no-repeat var(--color-background-alt);
+
+    background-size: auto 127.5%;
+    background-position: 32% 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .hero {
+    background-size: cover;
+    background-position-y: 51%;
+  }
+}
+
+.cta-box .input-group {
+  background-color: var(--color-background);
+  padding: 5px;
+  border-radius: 8px;
+}
+.cta-box .input-group .form-control {
+  font-size: 14px;
+  letter-spacing: var(--size-letter-spacing);
+  line-height: 36px;
+  padding-left: 1.25em;
+  border-radius: 8px;
+  border: none;
+}
+.form-control::placeholder {
+  color: #0006;
+}
+.cta-box .input-group .form-control:focus {
+  outline: none;
+  /* TODO: come up with a good looking alternative */
+}
+@media screen and (min-width: 768px) {
+  .cta-box .input-group {
+    padding: 6px;
+  }
+  .cta-box .input-group .form-control {
+    font-size: 16px;
+    min-width: 18.75em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .cta-box .input-group .form-control {
+    min-width: 22.125em;
+    padding-left: 1.625em;
+  }
+}
+
+/* #endregion */
+
+/* #region features list */
+
+.features-list {
+  row-gap: 80px;
+  column-gap: 116px;
+  margin-top: 60px;
+}
+.features-list .card img {
+  height: 76px;
+}
+@media screen and (min-width: 768px) {
+  .features-list {
+    margin-top: 80px;
+  }
+}
+
+/* #endregion */
+
+/* #region process list */
+
+#section-process {
+  background-image: url('/assets/backgrounds/9c95c18933a375fb8c7f5e24ccb04f62.png');
+  background-blend-mode: lighten;
+  background-size: cover;
+}
+.process-item:not(.process-item:last-child) {
+  margin-bottom: -9px;
+}
+.process-separator {
+  height: 36px;
+}
+.process-list {
+  row-gap: 40px;
+  column-gap: 36px;
+}
+@media screen and (min-width: 768px) {
+  .process-separator {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+/* #endregion */
+
+/* #region articles */
+
+article figure {
+  margin: 0;
+  padding: 0;
+}
+article figure img {
+  border-radius: 8px;
+}
+#section-articles {
+  gap: 60px;
+}
+#section-articles article {
+  row-gap: 30px;
+}
+@media screen and (min-width: 768px) {
+  #section-articles {
+    gap: 120px;
+  }
+  #section-articles article {
+    column-gap: 56px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #section-articles article {
+    column-gap: 145px;
+  }
+}
+
+/* #endregion */
+
+/* #region companies (logos) */
+
+.cloud-item {
+  width: 170px;
+  height: 96px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background-color: var(--color-background);
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--color-primary);
+  box-shadow: 0 30px 40px #d4d9e833;
+  transition: 100ms;
+}
+.cloud-item:hover {
+  box-shadow: 0 15px 40px #d4d9e8ff;
+}
+.cloud-item:not(a[target='_blank']) > span::after {
+  content: url('/assets/icons/ArrowRight.svg');
+  display: inline-block;
+  height: 32px;
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
+.logo-cloud {
+  gap: 24px;
+}
+
+/* #endregion */
+
+/* #region CTA */
+
+#section-cta .cta-block img {
+  height: 90px;
+}
+@media screen and (min-width: 768px) {
+  #section-cta .cta-block img {
+    height: 120px;
+  }
+}
+
+/* #endregion */
+
+/* #region footer (sitemap) */
+
+.sitemap a {
+  text-decoration: none;
+  color: inherit;
+}
+.sitemap ul,
+.sitemap li {
+  margin: 0;
+  padding: 0;
+}
+.sitemap ul {
+  list-style: none;
+  font-weight: 400;
+  line-height: 2;
+  row-gap: 24px;
+}
+.sitemap > ul > li {
+  font-weight: bold;
+  line-height: 1.5;
+  row-gap: 24px;
+}
+.sitemap > ul {
+  row-gap: 52px;
+  column-gap: 49px;
+}
+.sitemap {
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+  .sitemap {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .sitemap > ul {
+    column-gap: 100px;
+  }
+}
+
+.footer-footer {
+  row-gap: 58px;
+  column-gap: 2em;
+}
+.copyright {
+  line-height: 2;
+}
+.social-icons {
+  gap: 16px;
+}
+.social-icons img {
+  width: 32px;
+}
+
+/* #endregion */

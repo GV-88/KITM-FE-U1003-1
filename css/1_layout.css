@@ -1,0 +1,352 @@
+img {
+  max-width: 100vw;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+/* in the odd case that all content height < 100vh */
+/* disabled for performance */
+/* body > * {
+  flex-grow: 1;
+} */
+
+/* #region header & nav (hamburgers) */
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35px;
+  display: flex;
+  flex-flow: row nowrap; /* possible overflow issues with nowrap */
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header nav ul {
+  display: flex;
+  flex-flow: row nowrap; /* possible overflow issues with nowrap */
+}
+
+header nav a {
+  display: block;
+  text-wrap: nowrap;
+}
+
+/* desktop-first here, because mobile behavior is exceptional */
+@media screen and (max-width: 767px) {
+  header {
+    justify-content: space-between;
+  }
+  header nav {
+    position: relative;
+    cursor: pointer;
+  }
+  header nav ul {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: var(--color-background);
+    border-radius: 4px;
+    box-shadow: 4px 8px 8px var(--color-foreground-alt2);
+    display: none;
+  }
+  header nav::before {
+    content: url('/assets/icons/List.svg');
+    display: block;
+    width: 32px;
+  }
+  header nav:hover {
+    color: var(--color-foreground-alt2);
+  }
+  header nav:hover ul {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  header nav a {
+    line-height: 48px;
+    padding: 0 16px;
+    text-wrap: nowrap;
+  }
+  header nav a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-foreground-on-dark);
+  }
+}
+
+/* #endregion */
+
+/* #region hero & cta-box */
+
+.cta-box h1,
+.cta-box p {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .cta-box h1,
+  .cta-box p {
+    text-align: start;
+  }
+}
+
+.cta-box .input-group {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-items: flex-end;
+  align-items: stretch;
+  width: 100%;
+}
+.cta-box .input-group .form-control {
+  flex: 1 1 auto;
+}
+.cta-box .input-group .btn {
+  flex: 0 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .cta-box .input-group {
+    width: fit-content;
+  }
+}
+
+/* #endregion */
+
+/* #region features list */
+
+.features-title,
+.features-list .card {
+  text-align: center;
+}
+.features-title p {
+  margin-left: auto;
+  margin-right: auto;
+}
+.features-list .card img {
+  /* weird... had to resort to this because display:inline behaves strangely with vertical margins??? */
+  display: block;
+  margin: 0 auto;
+}
+.features-list {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* #endregion */
+
+/* #region process list */
+
+.process-title {
+  text-align: center;
+}
+.process-item {
+  text-align: center;
+  flex: 1 1 auto;
+}
+.process-separator {
+  width: fit-content;
+}
+.process-separator::before {
+  content: url(/assets/icons/CaretCircleDoubleRight.svg);
+  display: block;
+  height: 100%;
+}
+.process-list {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+@media screen and (min-width: 768px) {
+  .process-item {
+    text-align: start;
+  }
+  .process-separator {
+    transform: rotate(-90deg);
+  }
+  .process-list {
+    flex-flow: row nowrap; /* wrap messes up widths */
+    justify-content: center;
+  }
+}
+
+/* #endregion */
+
+/* #region articles */
+
+#section-articles {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+article figure img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+#section-articles article {
+  display: grid;
+  grid-template: auto auto / 100%;
+}
+#section-articles article figure {
+  grid-row: 1;
+}
+.article-mainpart {
+  text-align: center;
+}
+article .btn {
+  display: block; /* this makes full width */
+}
+@media screen and (min-width: 768px) {
+  #section-articles article {
+    grid-template: auto / 1fr 1fr;
+    grid-auto-flow: column;
+  }
+  #section-articles article:nth-child(2n) figure {
+    grid-column: 1;
+  }
+  article figure img {
+    height: 100%;
+  }
+  .article-mainpart {
+    text-align: start;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  article .btn {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* #section-articles article:nth-child(2n-1) {
+    grid-template: auto / 1fr auto;
+  }
+  #section-articles article:nth-child(2n) {
+    grid-template: auto / auto 1fr;
+  } */
+  /* VERY strange behavior with this layout: content height can exceed grid row height!!!
+     This happens when text in 1fr column grows higher than image in auto column,
+     then image with height:100% tries to follow the height
+     and possibly induces a feedback loop with width.
+     These auto and 1fr sizes become co-dependent; too many unknown variables, too dynamic.
+     Probably giving auto width to img column is not wise, because then it tries to match actual img width */
+  /* Imagine scenario: picture is wide landscape and article has lots of text;
+     in such case would seem best to resort to single column layout */
+
+  /* alternative approach */
+  #section-articles article {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  #section-articles article > * {
+    flex: 1 0 15%;
+  }
+  #section-articles article .article-mainpart {
+    flex-grow: 1.1;
+  }
+  #section-articles article:nth-child(2n) {
+    flex-direction: row-reverse;
+  }
+}
+
+/* #endregion */
+
+/* #region companies (logos) */
+.companies-title {
+  text-align: center;
+}
+.cloud-item {
+  display: inline-block;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cloud-item > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.logo-cloud {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+/* different breakpoint because of unique layout */
+@media screen and (max-width: 1023px) {
+  .cloud-item:nth-child(n + 6):not(.cloud-item:last-child) {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* hack method, works only with exactly 9 items */
+  .logo-cloud {
+    display: grid;
+    /* 36px is derived from calc((var(--item-height) - var(--gap)) / 2) */
+    grid-template: repeat(6, 36px) / repeat(5, auto);
+    grid-auto-flow: row;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .cloud-item {
+    grid-row-end: span 2;
+  }
+  .cloud-item:nth-child(1),
+  .cloud-item:nth-child(9) {
+    grid-column: 3;
+  }
+  .cloud-item:nth-child(2) {
+    grid-column: 2;
+  }
+  .cloud-item:nth-child(4) {
+    grid-column: 1;
+  }
+}
+
+/* #endregion */
+
+/* #region CTA */
+
+#section-cta .cta-block {
+  text-align: center;
+}
+
+/* #endregion */
+
+/* #region footer (sitemap) */
+
+.sitemap ul,
+.sitemap > ul > li,
+.footer-footer {
+  display: flex;
+  flex-flow: column nowrap;
+}
+@media screen and (min-width: 768px) {
+  .sitemap > ul {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .sitemap > ul {
+    justify-content: flex-start;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer-footer {
+    flex-flow: row-reverse wrap;
+    justify-content: space-between;
+  }
+}
+.social-icons {
+  display: flex;
+}
+
+/* #endregion */
