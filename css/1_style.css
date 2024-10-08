@@ -704,7 +704,7 @@ article .btn {
   text-align: center;
 }
 
-.logo-cloud a {
+.cloud-item {
   display: inline-block;
   width: 170px;
   height: 96px;
@@ -720,23 +720,24 @@ article .btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: none;
+  box-shadow: 0 30px 40px #d4d9e833;
   transition: 100ms;
 }
 
-.logo-cloud a > img {
+.cloud-item > img {
   max-width: 100%;
   max-height: 100%;
 }
 
-.logo-cloud a:hover {
-  box-shadow: 0 0 8px var(--color-primary);
+.cloud-item:hover {
+  box-shadow: 0 15px 40px #d4d9e8ff;
 }
 
-.logo-cloud a:not(a[target='_blank']) > span::after {
+.cloud-item:not(a[target='_blank']) > span::after {
   content: url('/assets/icons/ArrowRight.svg');
   display: inline-block;
   height: 32px;
+  margin-left: 0.5em;
   vertical-align: middle;
 }
 
@@ -745,6 +746,35 @@ article .btn {
   gap: 24px;
   flex-flow: column wrap;
   align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .cloud-item:nth-child(n + 6):not(.cloud-item:last-child) {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* hack method, works only with exactly 9 items */
+  .logo-cloud {
+    display: grid;
+    /* 36px is derived from calc((var(--item-height) - var(--gap)) / 2) */
+    grid-template: repeat(6, 36px) / repeat(5, auto);
+    grid-auto-flow: row;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .cloud-item {
+    grid-row-end: span 2;
+  }
+  .cloud-item:nth-child(1),
+  .cloud-item:nth-child(9) {
+    grid-column: 3;
+  }
+  .cloud-item:nth-child(2) {
+    grid-column: 2;
+  }
+  .cloud-item:nth-child(4) {
+    grid-column: 1;
+  }
 }
 
 /* #endregion */
