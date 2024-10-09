@@ -129,7 +129,7 @@ footer,
 @media screen and (min-width: 1200px) {
   .cta-box p {
     font-size: 20px;
-    line-height: 1.8125;
+    line-height: 1.8;
     margin-bottom: 41px;
   }
   .process-title .subtitle {
@@ -550,8 +550,9 @@ header nav a {
 }
 @media screen and (min-width: 768px) {
   .process-separator {
-    height: 28px;
-    width: 28px;
+    /* height: 28px;
+    width: 28px; */
+    transform: rotate(-90deg) scale(calc(7 / 9)); /* BIG MISTERY, why can't resize and align this the normal way??? */
   }
 }
 

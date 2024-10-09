@@ -125,7 +125,7 @@ header nav a {
   margin-left: auto;
   margin-right: auto;
 }
-.features-list .card img {
+.features-list .card .compound-icon {
   /* weird... had to resort to this because display:inline behaves strangely with vertical margins??? */
   display: block;
   margin: 0 auto;
@@ -135,6 +135,54 @@ header nav a {
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: center;
+}
+
+/* #endregion */
+
+/* #region compound icons */
+
+.compound-icon {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+.compound-icon::before {
+  content: '';
+  display: block;
+  position: absolute;
+  /* z-index: 1; */ /* no way to make this work */
+  background-color: #ccc;
+  mix-blend-mode: darken;
+  border-radius: 50%;
+  height: 55%;
+  width: 55%;
+  top: 25%;
+  left: 25%;
+}
+.compound-icon.ci-nw::before {
+  top: 10%;
+  left: 3%;
+}
+.compound-icon.ci-ne::before {
+  top: 0%;
+  left: auto;
+  right: 0%;
+}
+.compound-icon.ci-yellow::before {
+  background-color: #ffba53;
+}
+.compound-icon.ci-red::before {
+  background-color: #ff5353;
+}
+.compound-icon.ci-pink::before {
+  background-color: #ff5391;
+}
+.compound-icon.ci-indigo::before {
+  background-color: #7553ff;
+}
+.compound-icon.ci-blue::before {
+  background-color: #53b6ff;
 }
 
 /* #endregion */
@@ -165,9 +213,9 @@ header nav a {
   .process-item {
     text-align: start;
   }
-  .process-separator {
+  /* .process-separator {
     transform: rotate(-90deg);
-  }
+  } */
   .process-list {
     flex-flow: row nowrap; /* wrap messes up widths */
     justify-content: center;
